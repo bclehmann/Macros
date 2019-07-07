@@ -1,0 +1,1 @@
+start chrome "https://youtube.com"
