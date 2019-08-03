@@ -12,6 +12,17 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;	return (so it don't get borked and run all of them)
 
 
+!I::
+	if WinExist("ahk_exe powershell.exe")
+		WinActivate  ; Uses the last found window.
+	else{
+		Send #r
+		Sleep 100
+		Send C:\Users\benny\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk
+		Send {Enter}
+	} 
+		
+	return
 
 !C::
 	if WinExist("ahk_exe chrome.exe")
@@ -134,8 +145,11 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 !T::
 	if WinExist("ahk_exe cmd.exe")
 		WinActivate  ; Uses the last found window.
-	else 
-		Run cmd.exe
+	else {
+		Send #x
+		Sleep 100
+		Send c
+	}
 	return	
 
 !O::
