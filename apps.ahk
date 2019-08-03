@@ -16,9 +16,9 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	if WinExist("ahk_exe powershell.exe")
 		WinActivate  ; Uses the last found window.
 	else{
-		Send #r
-		Sleep 100
-		Send C:\Users\benny\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk
+		Run "C:\Users\benny\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Run.lnk"
+		WinWait "Run", "ahk_class #32770", "ahk_exe Explorer.EXE"
+		Send "C:\Users\benny\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk"
 		Send {Enter}
 	} 
 		
@@ -146,9 +146,10 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	if WinExist("ahk_exe cmd.exe")
 		WinActivate  ; Uses the last found window.
 	else {
-		Send #x
-		Sleep 100
-		Send c
+		Run "C:\Users\benny\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Run.lnk"
+		WinWait "Run", "ahk_class #32770", "ahk_exe Explorer.EXE"
+		Send "C:\Users\benny\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Command Prompt.lnk"
+		Send {Enter}
 	}
 	return	
 
