@@ -18,7 +18,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	else{
 		Run "C:\Users\benny\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Run.lnk"
 		WinWait "Run", "ahk_class #32770", "ahk_exe Explorer.EXE"
-		Send "C:\Users\benny\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk"
+		Send "powershell"
 		Send {Enter}
 	} 
 		
@@ -148,7 +148,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	else {
 		Run "C:\Users\benny\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Run.lnk"
 		WinWait "Run", "ahk_class #32770", "ahk_exe Explorer.EXE"
-		Send "C:\Users\benny\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Command Prompt.lnk"
+		Send "cmd"
 		Send {Enter}
 	}
 	return	
