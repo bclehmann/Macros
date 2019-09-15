@@ -28,7 +28,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	if WinExist("ahk_exe chrome.exe")
 		WinActivate  ; Uses the last found window.
 	else 
-		Run Chrome
+		Run "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk"
 	return
 
 !F::
