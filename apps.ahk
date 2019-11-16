@@ -168,6 +168,10 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 		;Run "C:\Users\benny\Documents\Macros\VS 2019 Warning.bat"
 	}
 	return	
+	
+!M::
+	Send ^+{Esc}	; Control+Shift+Esc, This starts task manager or focuses it if running.
+	return
 
 
 ;Web shortcuts, pretty simple, there is corresponding batch file for each
