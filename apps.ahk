@@ -12,10 +12,28 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;	return (so it don't get borked and run all of them)
 
 
+;Shamelessly yoinked from https://autohotkey.com/board/topic/88790-cycle-through-windows-of-the-same-class-as-the-current-window/
+#PgDn::	; Next Window of same class, Win+PgDn (# is a modifier for either LWin or RWin)
+	WinGetClass, CurrentActive, A
+	WinGet, Instances, Count, ahk_class %CurrentActive%
+	If Instances > 1
+		WinSet, Bottom,, A
+	WinActivate, ahk_class %CurrentActive%
+	return
+
+;Shamelessly yoinked from https://autohotkey.com/board/topic/88790-cycle-through-windows-of-the-same-class-as-the-current-window/
+#PgUp::	; Previous Window of same class, Win+PgDn (# is a modifier for either LWin or RWin)
+	WinGetClass, CurrentActive, A
+	WinGet, Instances, Count, ahk_class %CurrentActive%
+	If Instances > 1
+		WinActivateBottom, ahk_class %CurrentActive%
+	return
+
 !I::
 	if WinExist("ahk_exe powershell.exe")
 		WinActivate  ; Uses the last found window.
 	else{
+		;;This bs method is required to launch with environment variable axis of Run.exe and not AHK
 		Run "C:\Users\benny\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Run.lnk"
 		WinWait "Run", "ahk_class #32770", "ahk_exe Explorer.EXE"
 		Send "powershell"
@@ -146,6 +164,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	if WinExist("ahk_exe cmd.exe")
 		WinActivate  ; Uses the last found window.
 	else {
+		;;This bs method is required to launch with environment variable axis of Run.exe and not AHK
 		Run "C:\Users\benny\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Run.lnk"
 		WinWait "Run", "ahk_class #32770", "ahk_exe Explorer.EXE"
 		Send "cmd"
