@@ -29,6 +29,20 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 		WinActivateBottom, ahk_class %CurrentActive%
 	return
 
+!U::
+	if WinExist("ahk_exe ubuntu.exe")
+		WinActivate ; Uses the last found window.
+	else{
+		;;This bs method is required to launch with environment variable axis of Run.exe and not AHK
+		Run "C:\Users\benny\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Run.lnk"
+		WinWait "Run", "ahk_class #32770", "ahk_exe Explorer.EXE"
+		Send "ubuntu"
+		Send {Enter}
+	} 
+		
+	return
+
+
 !I::
 	if WinExist("ahk_exe powershell.exe")
 		WinActivate  ; Uses the last found window.
