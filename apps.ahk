@@ -198,7 +198,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 		WinActivate  ; Uses the last found window.
 	else{ 
 		Run "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Visual Studio 2019.lnk"
-		;Run "C:\Users\benny\Documents\Macros\VS 2019 Warning.bat"
 	}
 	return	
 	
