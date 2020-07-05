@@ -92,10 +92,10 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	return
 	
 !S::
-	if WinExist("ahk_exe Slack.exe")
+	if WinExist("ahk_exe Spotify.exe")
 		WinActivate  ; Uses the last found window.
 	else 
-		Run "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Slack - Shortcut.lnk"
+		Run "C:\Users\benny\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Spotify.lnk"
 	return
 	
 !E::
