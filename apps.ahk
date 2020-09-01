@@ -205,6 +205,14 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	Send ^+{Esc}	; Control+Shift+Esc, This starts task manager or focuses it if running.
 	return
 
+!A::
+	Send document.getElementsByTagName("video")[0].playbackRate = 
+	return
+
++!A::
+	Send document.getElementsByTagName("video")[0].playbackRate = 2.5{Enter}
+	return
+
 
 ;Web shortcuts, pretty simple, there is corresponding batch file for each
 
