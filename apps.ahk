@@ -44,13 +44,13 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
 !I::
-	if WinExist("ahk_exe powershell.exe")
+	if WinExist("ahk_exe pwsh.exe")
 		WinActivate  ; Uses the last found window.
 	else{
 		;;This bs method is required to launch with environment variable axis of Run.exe and not AHK
 		Run "C:\Users\benny\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Run.lnk"
 		WinWait "Run", "ahk_class #32770", "ahk_exe Explorer.EXE"
-		Send "powershell"
+		Send pwsh
 		Send {Enter}
 	} 
 		
