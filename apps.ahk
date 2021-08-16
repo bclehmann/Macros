@@ -33,7 +33,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	if WinExist("ahk_exe ubuntu.exe")
 		WinActivate ; Uses the last found window.
 	else{
-		;;This bs method is required to launch with environment variable axis of Run.exe and not AHK
+		;;This bs method is required to launch with environment variable access of Run.exe and not AHK
 		Run "C:\Users\benny\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Run.lnk"
 		WinWait "Run", "ahk_class #32770", "ahk_exe Explorer.EXE"
 		Send "ubuntu"
@@ -43,11 +43,12 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	return
 
 
++!I::
 !I::
-	if WinExist("ahk_exe pwsh.exe")
+	if WinExist("ahk_exe pwsh.exe") && !GetKeyState("Shift")
 		WinActivate  ; Uses the last found window.
 	else{
-		;;This bs method is required to launch with environment variable axis of Run.exe and not AHK
+		;;This bs method is required to launch with environment variable access of Run.exe and not AHK
 		Run "C:\Users\benny\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Run.lnk"
 		WinWait "Run", "ahk_class #32770", "ahk_exe Explorer.EXE"
 		Send pwsh
@@ -178,7 +179,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	if WinExist("ahk_exe cmd.exe")
 		WinActivate  ; Uses the last found window.
 	else {
-		;;This bs method is required to launch with environment variable axis of Run.exe and not AHK
+		;;This bs method is required to launch with environment variable access of Run.exe and not AHK
 		Run "C:\Users\benny\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Run.lnk"
 		WinWait "Run", "ahk_class #32770", "ahk_exe Explorer.EXE"
 		Send "cmd"
