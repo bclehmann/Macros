@@ -113,9 +113,9 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 		Run "C:\Users\benny\Documents\Macros\GitHub Desktop.lnk"
 	return
 	
-	
++!W::
 !W::
-	if WinExist("ahk_class CabinetWClass")
+	if WinExist("ahk_class CabinetWClass") && !GetKeyState("Shift")
 		WinActivate  ; Uses the last found window.
 	else 
 		Run explorer
