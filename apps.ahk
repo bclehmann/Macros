@@ -176,13 +176,13 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	return	
 
 !T::
-	if WinExist("ahk_exe cmd.exe")
+	if WinExist("ahk_exe WindowsTerminal.exe")
 		WinActivate  ; Uses the last found window.
 	else {
 		;;This bs method is required to launch with environment variable access of Run.exe and not AHK
 		Run "C:\Users\benny\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Run.lnk"
 		WinWait "Run", "ahk_class #32770", "ahk_exe Explorer.EXE"
-		Send "cmd"
+		Send "wt"
 		Send {Enter}
 	}
 	return	
