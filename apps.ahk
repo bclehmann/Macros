@@ -224,3 +224,11 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 !Y::
 	Run "C:\Users\benny\Documents\Macros\youtube.bat"
 	return
+
+!J::
+	if WinExist("ahk_exe pycharm64.exe")
+		WinActivate
+	else {
+		Run "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\JetBrains\PyCharm 2024.1.4.lnk"
+	}
+	return
